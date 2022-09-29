@@ -1,30 +1,32 @@
 package at.measurement;
 
 import at.measurement.station.BaseStation;
-import at.measurement.station.TempStation;
-import at.measurement.station.WindStation;
+import java.io.IOException;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.Scanner;
 
-public class Runner {
+public class StationsRunner {
 
-  private List<Entry<Thread, BaseStation>> threadList = new ArrayList<>();
+  private final List<Entry<Thread, BaseStation>> threadList = new ArrayList<>();
 
-  public Runner(){
+  public StationsRunner(){
 
   }
 
+  public void addStation(BaseStation station){
+    threadList.add(startThread(station));
+  }
+
   public void runTillQuit(){
-    threadList.add(startThread(new WindStation()));
-    threadList.add(startThread(new TempStation()));
-
-    Scanner scanner = new Scanner(System.in);
-
-    System.err.println("End all Stations with q + ENTER: ");
-    scanner.next();
+    System.err.println("End all Stations with ENTER: ");
+    try {
+      //noinspection ResultOfMethodCallIgnored
+      System.in.read();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
     System.err.println("Ending...");
 
     try {
@@ -43,10 +45,6 @@ public class Runner {
     Thread t = new Thread(b);
     t.start();
     return new SimpleEntry<>(t, b);
-  }
-
-  public static void main(String[] args) {
-    new Runner().runTillQuit();
   }
 
 }

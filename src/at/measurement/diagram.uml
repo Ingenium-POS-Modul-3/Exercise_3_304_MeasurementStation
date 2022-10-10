@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="202.10327950217027" y="-121.74805226309749">at.measurement.observer.SensorSubject</node>
+    <node x="-31.600288354027896" y="-1.2480522630974917">at.measurement.station.BaseStation</node>
+    <node x="-70.1510596410279" y="161.24189945540536">at.measurement.station.WindStation</node>
+    <node x="628.9778012067121" y="-121.46744989998115">at.measurement.observer.SensorObserver</node>
+    <node x="622.5434040420088" y="-6.504608406248039">at.receiver.GraphicResult</node>
+    <node x="170.7952541858832" y="127.34781041771748">at.measurement.station.TempStation</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="at.measurement.station.WindStation" target="at.measurement.station.BaseStation" relationship="GENERALIZATION">
+      <point x="5.9641027899459687E-5" y="-26.99989945540537" />
+      <point x="10.849" y="129.0" />
+      <point x="49.4" y="129.0" />
+      <point x="2.883540278943997E-4" y="49.00005226309749" />
+    </edge>
+    <edge source="at.receiver.GraphicResult" target="at.measurement.observer.SensorObserver" relationship="REALIZATION">
+      <point x="-2.5656028352966587" y="-38.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="at.measurement.station.TempStation" target="at.measurement.station.BaseStation" relationship="GENERALIZATION">
+      <point x="-81.00025418588322" y="14.394189582282507" />
+      <point x="109.349" y="168.742" />
+      <point x="109.349" y="129.0" />
+      <point x="49.4" y="129.0" />
+      <point x="2.883540278943997E-4" y="49.00005226309749" />
+    </edge>
+    <edge source="at.measurement.station.BaseStation" target="at.measurement.observer.SensorSubject" relationship="GENERALIZATION">
+      <point x="81.0" y="-0.0" />
+      <point x="325.2952541858832" y="47.75194773690251" />
+      <point x="-2.8080253162870576" y="49.0" />
+    </edge>
+    <edge source="at.measurement.observer.SensorSubject" target="at.measurement.observer.SensorObserver" relationship="TO_MANY">
+      <point x="126.0" y="-21.719397636883656" />
+      <point x="-87.5" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="1.5" showDependencies="true" x="764.0" y="76.0" />
+  <SelectedNodes>
+    <node>at.measurement.station.BaseStation</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

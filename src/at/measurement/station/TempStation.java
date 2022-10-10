@@ -8,5 +8,7 @@ public class TempStation extends BaseStation{
   public void doStationWork() {
     float temp = rand.nextFloat()*40 - 10;
     System.out.printf("Temperature: %.2f %n", temp);
+
+    notifyObserver("Temperature", temp);
   }
 }

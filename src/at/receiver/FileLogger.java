@@ -1,11 +1,12 @@
 package at.receiver;
 
+import at.measurement.observer.SensorObserver;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileLogger {
+public class FileLogger implements SensorObserver {
 
   private BufferedWriter bw;
 
@@ -19,8 +20,14 @@ public class FileLogger {
       bw.write(sensorName);
       bw.write(": ");
       bw.write(String.format("%.4f%n", sensorData));
+      bw.flush();
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+  }
+
+  @Override
+  public void notify(String name, float value) {
+    logResult(name, value);
   }
 }

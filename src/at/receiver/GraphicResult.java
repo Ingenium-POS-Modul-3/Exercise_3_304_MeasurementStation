@@ -1,5 +1,6 @@
 package at.receiver;
 
+import at.measurement.observer.SensorObserver;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,7 +12,12 @@ import javax.swing.border.Border;
 
 
 
-public class GraphicResult {
+public class GraphicResult implements SensorObserver {
+
+  @Override
+  public void notify(String name, float value) {
+    logResult(name, value);
+  }
 
   private class MyPanel extends JPanel{
 

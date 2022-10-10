@@ -1,6 +1,8 @@
 package at.measurement.station;
 
-public abstract class BaseStation implements Runnable{
+import at.measurement.observer.SensorSubject;
+
+public abstract class BaseStation extends SensorSubject implements Runnable{
   private boolean isEnd = false;
 
   public void end(){
